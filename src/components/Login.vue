@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     name: "Login",
     data(){
@@ -22,9 +23,28 @@ export default {
     },
     methods:{
         login(){
+            axios.get("http://localhost:8080/api/users/login",{
+                params:{
+                    email:this.email,
+                    pass:this.password
+                }
             
+            }).then(response => {
+                if ( response.data.email == this.email ){
+                    localStorage.setItem('user-info',JSON.stringify(response.data))
+                    this.$router.push({name:'Home'})
+                }
+
+            });
+        }
+    },
+    mounted(){
+        let user = localStorage.getItem('user-info');
+        if(user){
+            this.$router.push({name:'Home'})
         }
     }
+
 }
 </script>
 
