@@ -1,13 +1,15 @@
 <template>
     <div class="nav">
-        <a href="home">Home</a>
-        <a href="home">Add an offer or demand </a>
-        <a href="home">Update my offers and demands</a>
+        <img class="logo" src="../assets/app-logo-mini.png"/>
+        <router-link to="/">New Search</router-link>
+        <router-link to="add">Add an offer or demand </router-link>
+        <router-link to="myProducts">My Products</router-link>
+        <router-link to="myDemands">My Demands</router-link>
         <a v-if="connected == false" id="login" href="login">Login</a>
         <a v-else @click="logout" id="logout" href="#">Log out</a>
     </div>  
 </template>
-<script>
+<script scoped>
 export default {
     name: "Header",
     data(){
@@ -55,15 +57,11 @@ export default {
     margin-right: 4px;
 }
 .nav img {
-    float:left;
-    color: #f2f2f2;
-    height: 40px;
-    text-align: center;
-    padding: 16px 14px;
-    text-decoration: none;
-    font-size: 16px;
-    margin-right: 4px;
-    background-color: #fff;
+    float:left;    
+    width: 120px;
+    height: 55px;
+    padding-left: 20px;
+    padding-right: 30px;
 }
 
 .nav a:hover{

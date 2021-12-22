@@ -1,18 +1,22 @@
 <template>
-     <img class="logo" src="../assets/app-logo.png"/>
-    <h1> Login </h1>
-    <div class="register">
-        <input type="email" v-model='email' pattern=".+@globex\.com" size="30"  placeholder="Enter Email" required>
-        <input type="password" v-model='password' placeholder="Enter Password"/>
-        <button @click="login"> Login</button>
-    <p>
-        <router-link to="/sign-up">Sign Up</router-link>
-    </p>
-    </div>
+    <div class = "container">
+        <img @click="this.$router.push({name:'Home'})" class="logo" src="../assets/app-logo.png"/>
+        <h1> Login </h1>
+        <div class="register">
+            <input type="email" v-model='email' pattern=".+@globex\.com" size="30"  placeholder="Enter Email" required>
+            <input type="password" v-model='password' placeholder="Enter Password"/>
+            <button @click="login"> Login</button>
+        <p>
+            <router-link to="/sign-up">Sign Up</router-link>
+        </p>
+        </div>
+    </div>        
 </template>
 
 <script>
 import axios from 'axios'
+import {API_HOST} from '../config';
+
 export default {
     name: "Login",
     data(){
@@ -23,7 +27,7 @@ export default {
     },
     methods:{
         login(){
-            axios.get("http://localhost:8080/api/users/login",{
+            axios.get(`${API_HOST}/api/users/login`,{
                 params:{
                     email:this.email,
                     pass:this.password
@@ -48,7 +52,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .logo{
     width: 300px;
     height: 100px;
@@ -71,4 +75,9 @@ export default {
     color: #fff;
     cursor: pointer;
 }
+.container {
+      text-align: center;
+
+}
+
 </style>

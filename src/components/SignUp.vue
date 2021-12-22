@@ -1,16 +1,18 @@
-<template>
-    <img class="logo" src="../assets/app-logo.png"/>
-    <h1> Sign Up </h1>
-    <div class="register">
-        <input type="text" v-model='name' placeholder="Enter full name"/>
-        <input type="email" v-model='email' pattern=".+@globex\.com" size="30"  placeholder="Enter Email" required>
-        <input type="password" v-model='password' placeholder="Enter Password"/>
-        <input type="text" v-model='phone' placeholder="Enter phone number" pattern="[0-9]{10}" />
-        <button @click="signUp"> Sign up </button>
+<template>  
+    <div class = "container">
+        <img @click="this.$router.push({name:'Home'})" class="logo" src="../assets/app-logo.png"/>
+        <h1> Sign Up </h1>
+        <div class="register">
+            <input type="text" v-model='name' placeholder="Enter full name"/>
+            <input type="email" v-model='email' pattern=".+@globex\.com" size="30"  placeholder="Enter Email" required>
+            <input type="password" v-model='password' placeholder="Enter Password"/>
+            <input type="text" v-model='phone' placeholder="Enter phone number" pattern="[0-9]{10}" />
+            <button @click="signUp"> Sign up </button>
+        </div>
     </div>
-
 </template>
 <script>
+import {API_HOST} from '../config';
 import axios from 'axios'
 export default {
     name: "SignUp",
@@ -25,7 +27,7 @@ export default {
     methods:{
         async signUp(){
             console.warn(this.email,this.name,this.password,this.phone);
-            axios.get("http://localhost:8080/api/users/register",{
+            axios.get(`${API_HOST}/api/users/register`,{
                 params:{
                     email:this.email,
                     fullName:this.name,
@@ -60,7 +62,7 @@ export default {
 }
 </script>
 
-<style >
+<style scoped>
 .logo{
     width: 300px;
     height: 100px;
@@ -83,4 +85,9 @@ export default {
     color: #fff;
     cursor: pointer;
 }
+.container {
+      text-align: center;
+
+}
+
 </style>
