@@ -38,9 +38,15 @@ export default {
     },
     methods:{
         deleteProd(){
+            let user = localStorage.getItem('user-info');
+            let password = JSON.parse(user).password
             axios.delete(
               `${API_HOST}/api/products/${this.id}`
-            ).then(() => {
+            ,{
+                params:{
+                    'password':password
+                }
+            }).then(() => {
                 this.$emit("deleted", this.id)
             })
 
