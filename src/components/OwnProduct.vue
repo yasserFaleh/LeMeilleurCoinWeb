@@ -44,7 +44,7 @@ export default {
               `${API_HOST}/api/products/${this.id}`
             ,{
                 params:{
-                    'password':password
+                    'pass':password
                 }
             }).then(() => {
                 this.$emit("deleted", this.id)
