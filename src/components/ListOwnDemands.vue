@@ -2,7 +2,7 @@
     <Header />
     <h2> Demands </h2>
     <div v-if="dataAvailable">
-        <OwnProduct  v-for="product in ownDemand" :key="product.id" :id="product.id" :title="product.title"  @heater-deleted="deleteHeater" :price="product.price" :description="product.description" :date="product.date" :mail="product.userEmail">
+        <OwnProduct  v-for="product in ownDemand" :key="product.id" :id="product.id" :title="product.title"  @deleted="deleted" :price="product.price" :description="product.description" :date="product.date" :mail="product.userEmail">
         </OwnProduct>
     </div>
 

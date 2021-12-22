@@ -43,7 +43,6 @@ export default {
             ).then(() => {
                 this.$emit("deleted", this.id)
             })
-          
 
         }
     },
