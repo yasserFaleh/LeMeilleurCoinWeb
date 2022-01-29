@@ -1,6 +1,8 @@
 module.exports = {
     devServer: {
-        proxy: 'https://lemeilleurcoin-yasser-faleh.cleverapps.io/',
+        proxy: 'http://lemeilleurcoin-yasser-faleh.cleverapps.io/',
+        //proxy: 'http://localhost:8080/',
+
     },
     lintOnSave: false,
     publicPath: process.env.NODE_ENV === 'production'

@@ -37,6 +37,9 @@ export default {
                 if ( response.data.email == this.email ){
                     localStorage.setItem('user-info',JSON.stringify(response.data))
                     this.$router.push({name:'Home'})
+                }else {
+                    alert("Login or password wrong");
+                    this.password =""
                 }
 
             });

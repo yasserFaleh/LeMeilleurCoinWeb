@@ -2,8 +2,8 @@
     <Header />
     <h2> Demands </h2>
     <div v-if="dataAvailable">
-        <OwnProduct  v-for="product in ownDemand" :key="product.id" :id="product.id" :title="product.title"  @deleted="deleted" :price="product.price" :description="product.description" :date="product.date" :mail="product.userEmail">
-        </OwnProduct>
+        <OwnOffer  v-for="product in ownDemand" :key="product.id" :id="product.id" :title="product.title"  @deleted="deleted" :price="product.price" :description="product.description" :date="product.date" :mail="product.userEmail">
+        </OwnOffer>
     </div>
 
 
@@ -11,14 +11,14 @@
 
 <script>
 import Header from './Header.vue' 
-import OwnProduct from './OwnProduct.vue'
+import OwnOffer from './OwnOffer.vue'
 import axios from 'axios'
 import {API_HOST} from '../config';
 
 export default {
     components:{
         Header,
-        OwnProduct
+        OwnOffer
     },
     data(){
         return {

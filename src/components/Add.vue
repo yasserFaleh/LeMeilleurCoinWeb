@@ -69,7 +69,7 @@ export default {
             }else {
                 // getting the email of the current user
                 let user = localStorage.getItem('user-info');
-                let userEmail = user.email 
+                let userEmail = JSON.parse(user).email
 
                 // getting the type ( product  or demand ) 
                 var url
@@ -78,23 +78,29 @@ export default {
                 }else {
                     url = `${API_HOST}/api/offers/create`
                 }
+                var price = 0
                 // getting the price 
-                if ( this.price == '' )
-                    var price = 0
+                if ( this.price != '' )
+                    price = this.price
 
-                axios.post(url,{
-                data:{
-                    "category": this.category.toUpperCase(),
-                    "description": this.description,
-                    "price": price,
-                    "productStatus": "AVAILABLE",
-                    "title": this.title,
-                    "userEmail": userEmail
-                }
-                }).then(response => {
+                let body ={
+                    category: this.category.toUpperCase(),
+                    description: this.description,
+                    price:price,
+                    productStatus: "AVAILABLE",
+                    title: this.title,
+                    userEmail: userEmail
+                };
+                axios.post(url,body).then(response => {
                     if ( response.data == false )
-                        alert("Error signing up, try later");
-                    
+                        alert("Error creating !");
+                    else {
+                        this.price=0
+                        this.description = ""
+                        this.title = ""
+                        alert("Created succesfuly !");
+                    }
+
                 })
             }
         }
