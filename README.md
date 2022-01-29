@@ -1,7 +1,13 @@
 # le-meilleur-coin-web
 You can use the following user :
   login : falehyasser@gmail.com 
-  pass  : yasser123
+  pass  : yasser123  
+
+To create an account, you should respect : 
+- the password length should be greater than 8
+- The phone number should contains 10 digits
+
+
 ## Researching a product or a demand 
 ![image](https://user-images.githubusercontent.com/58749105/147075421-c77f5f7c-82ec-4de6-b88c-df17c7bde67d.png)
 
